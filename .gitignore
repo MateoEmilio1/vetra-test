@@ -7,3 +7,13 @@ node_modules
 
 .ph
 projects-import.js
+.vscode
+.DS_Store
+.npmrc
+.idea
+*.log
+*.tsbuildinfo
+.cache
+.vscode-test
+tmp
+.next

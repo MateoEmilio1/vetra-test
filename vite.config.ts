@@ -8,7 +8,10 @@ export default defineConfig(({ mode }) => {
   });
 
   const additionalViteConfig: UserConfig = {
-    // add your own vite config here
+    server: {
+      port: 3000,
+      strictPort: false,
+    },
   };
 
   const config = mergeConfig(baseConnectViteConfig, additionalViteConfig);
