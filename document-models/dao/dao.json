@@ -1,0 +1,70 @@
+{
+  "author": {
+    "name": "Vetra Test",
+    "website": "https://powerhouse.inc"
+  },
+  "description": "DAO document model containing core DAO metadata, treasury, and organization info",
+  "extension": "phdao",
+  "id": "vetra-test/dao",
+  "name": "DAO",
+  "specifications": [
+    {
+      "changeLog": [],
+      "modules": [
+        {
+          "description": "Core DAO metadata operations",
+          "id": "metadata",
+          "name": "Metadata",
+          "operations": [
+            {
+              "description": "Create a new DAO",
+              "errors": [],
+              "examples": [],
+              "id": "create-dao",
+              "name": "CREATE_DAO",
+              "reducer": "state.id = action.input.id;\nstate.name = action.input.name;\nstate.description = action.input.description || null;\nstate.createdAt = action.input.createdAt;",
+              "schema": "input CreateDaoInput {\n  id: OID!\n  name: String!\n  description: String\n  createdAt: DateTime!\n}\n",
+              "scope": "global",
+              "template": "Create a new DAO"
+            },
+            {
+              "description": "Update DAO name and description",
+              "errors": [],
+              "examples": [],
+              "id": "update-dao-metadata",
+              "name": "UPDATE_DAO_METADATA",
+              "reducer": "if (action.input.name !== undefined) state.name = action.input.name;\nif (action.input.description !== undefined) state.description = action.input.description || null;",
+              "schema": "input UpdateDaoMetadataInput {\n  name: String\n  description: String\n}\n",
+              "scope": "global",
+              "template": "Update DAO name and description"
+            },
+            {
+              "description": "Update DAO treasury balance",
+              "errors": [],
+              "examples": [],
+              "id": "update-dao-treasury",
+              "name": "UPDATE_DAO_TREASURY",
+              "reducer": "state.treasury = action.input.treasury || null;",
+              "schema": "input UpdateDaoTreasuryInput {\n  treasury: Amount_Money\n}\n",
+              "scope": "global",
+              "template": "Update DAO treasury balance"
+            }
+          ]
+        }
+      ],
+      "state": {
+        "global": {
+          "examples": [],
+          "initialValue": "{\"id\": null, \"name\": \"\", \"description\": null, \"createdAt\": null, \"treasury\": null}",
+          "schema": "type DAO {\n  id: OID!\n  name: String!\n  description: String\n  createdAt: DateTime!\n  treasury: Amount_Money\n}\n\ntype DaoState {\n  id: OID\n  name: String\n  description: String\n  createdAt: DateTime\n  treasury: Amount_Money\n}"
+        },
+        "local": {
+          "examples": [],
+          "initialValue": "",
+          "schema": ""
+        }
+      },
+      "version": 1
+    }
+  ]
+}

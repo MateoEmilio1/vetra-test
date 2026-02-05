@@ -1,14 +1,49 @@
 {
-  "name": "vetra-test",
-  "description": "",
-  "category": "",
-  "publisher": {
-    "name": "",
-    "url": ""
-  },
-  "documentModels": [],
-  "editors": [],
-  "apps": [],
-  "subgraphs": [],
-  "importScripts": []
+    "name": "vetra-test",
+    "description": "",
+    "category": "",
+    "publisher": {
+        "name": "",
+        "url": ""
+    },
+    "documentModels": [
+        {
+            "id": "vetra-test/proposal",
+            "name": "Proposal"
+        },
+        {
+            "id": "vetra-test/dao",
+            "name": "DAO"
+        },
+        {
+            "id": "vetra-test/task",
+            "name": "Task"
+        }
+    ],
+    "editors": [
+        {
+            "id": "dao-editor",
+            "name": "DAO Editor",
+            "documentTypes": [
+                "vetra-test/dao"
+            ]
+        },
+        {
+            "id": "proposal-editor",
+            "name": "Proposal Editor",
+            "documentTypes": [
+                "vetra-test/proposal"
+            ]
+        },
+        {
+            "id": "task-editor",
+            "name": "Task Editor",
+            "documentTypes": [
+                "vetra-test/task"
+            ]
+        }
+    ],
+    "apps": [],
+    "subgraphs": [],
+    "importScripts": []
 }
